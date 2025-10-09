@@ -6,7 +6,6 @@ This program is a Pharmacy Prescription Transaction Manager designed with a grap
 ## 🫸💥🫷 Meet The Team!
 ---
 All team members are studying at the University of Mindanao, Davao City, Philippines. Together, we combined our knowledge, creativity, and teamwork to bring this pharmacy management system to life.
----
 - Trisha Eunice C. Makigod - Full-stack developer
 - Shenna Quijada -  front-end developer
 - Hannah Dotillos - front-end developer
