@@ -116,6 +116,9 @@ public class PrescriptionReviewFrame extends JFrame {
 
         // Add timing label at the top of main panel
         JPanel timingPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        timingPanel.setBackground(Color.WHITE); // Make the timing panel background white
+        timingLabel.setBackground(Color.WHITE); // Make the timing label background white
+        timingLabel.setOpaque(true);            // Ensure the label uses its bg color
         timingPanel.add(timingLabel);
         main.add(timingPanel, BorderLayout.SOUTH);
 
@@ -144,7 +147,7 @@ public class PrescriptionReviewFrame extends JFrame {
         }
 
         JScrollPane scroll = new JScrollPane(table);
-        scroll.setBorder(new LineBorder(GRAY_BORDER, 1));
+        scroll.setBorder(new LineBorder(GRAY_BORDER, 0));
         main.add(scroll, BorderLayout.CENTER);
 
         addPatient("Juan Dela Cruz", "45", "Davao City");
@@ -169,10 +172,13 @@ public class PrescriptionReviewFrame extends JFrame {
     }
 
     private void applySearchRules() {
+    	
         long startTime = System.nanoTime();
         String query = searchField.getText().trim().toLowerCase();
         if (query.isEmpty() || query.equals("search patients")) {
             refreshTable(allPatients);
+            table.setBackground(Color.WHITE);
+
             long endTime = System.nanoTime();
             double elapsedMs = (endTime - startTime) / 1_000_000.0;
             timingLabel.setText("Execution Time: " + String.format("%.2f", elapsedMs) + " ms");
