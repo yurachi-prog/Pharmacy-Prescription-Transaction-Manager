@@ -26,6 +26,12 @@ You can either:
  - Run the GUI program and enjoy!
 
 For more information, including our complete system design and project documentation, please refer to the PDF file below. Inside, you will find detailed diagrams, feature explanations, development process, and everything you need to know about our Pharmacy Prescription Transaction Manager
+---
+## 🫸💥🫷 Revisions made based on the panel’s advice or recommendations 
+- UI (Font sizes, explore other fonts and the layout and sidebar do not center. Also the logout put it in the bottom)
+- Pure white for the execution time area 
+- need spacing for the dates
+
    
 
 
