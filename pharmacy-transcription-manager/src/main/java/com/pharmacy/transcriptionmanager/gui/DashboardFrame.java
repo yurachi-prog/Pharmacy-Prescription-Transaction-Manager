@@ -168,9 +168,9 @@ public class DashboardFrame extends JFrame {
         cardsPanel.setBackground(Color.WHITE);
         cardsPanel.setPreferredSize(new Dimension(500, 550));
 
-        cardsPanel.add(createStyledCard("Prescription Review", "Review pending prescriptions from patients", "Pharmacy", "20 Sept"));
-        cardsPanel.add(createStyledCard("Stock Audit", "Check and update medicine stock levels", "Inventory", "22 Sept"));
-        cardsPanel.add(createStyledCard("Payment Processing", "Handle and verify recent transactions", "Finance", "25 Sept"));
+        cardsPanel.add(createStyledCard("Prescription Review", "Review pending prescriptions from patients", "Pharmacy", " 20 Sept"));
+        cardsPanel.add(createStyledCard("Stock Audit", "Check and update medicine stock levels", "Inventory", " 22 Sept"));
+        cardsPanel.add(createStyledCard("Desk", "To confirm transactions", "Finance", " 25 Sept"));
 
         cardsWrapper.add(cardsPanel);
         dashboard.add(cardsWrapper, BorderLayout.CENTER);
@@ -276,8 +276,8 @@ public class DashboardFrame extends JFrame {
                 new PrescriptionReviewFrame().setVisible(true);
             } else if (title.equals("Stock Audit")) {
                 new StockViewFrame().setVisible(true);
-            } else if (title.equals("Payment Processing")) {
-                JOptionPane.showMessageDialog(this, "Payment Processing page coming soon!");
+            } else if (title.equals("Desk")) {
+                JOptionPane.showMessageDialog(this, "Please head to the desk to confirm the transaction");
             }
         });
 
