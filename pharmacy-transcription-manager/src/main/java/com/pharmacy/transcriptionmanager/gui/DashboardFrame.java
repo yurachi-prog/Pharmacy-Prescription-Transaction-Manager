@@ -28,19 +28,29 @@ public class DashboardFrame extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setLayout(new BorderLayout());
-        
-        // ===== SIDEBAR =====
+
+     // ===== SIDEBAR =====
         JPanel sidebar = new JPanel(new GridBagLayout());
         sidebar.setBackground(new Color(200, 0, 0));
         sidebar.setPreferredSize(new Dimension(200, getHeight()));
         sidebar.setBorder(new EmptyBorder(30, 10, 30, 10));
 
-        // Updated order with "Admin" before "Log Out"
-        String[] menuItems = {"Dashboard", "Overview", "Admin", "Log Out"};
-        JPanel menuPanel = new JPanel(new GridLayout(menuItems.length, 1, 0, 20));
-        menuPanel.setOpaque(false);
+        // Only the top buttons (excluding "Log Out")
+        String[] topMenuItems = {"Dashboard", "Overview", "Admin"};
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.insets = new Insets(0, 0, 10, 0); // spacing between buttons
 
-        for (String item : menuItems) {
+        // 1. Add vertical glue at the top to enable centering
+        gbc.gridy = 0;
+        gbc.weighty = 1;
+        sidebar.add(Box.createVerticalGlue(), gbc);
+
+        // 2. Add the menu buttons, incrementing y each time
+        gbc.weighty = 0;
+        gbc.anchor = GridBagConstraints.CENTER; // center buttons vertically
+        for (int i = 0; i < topMenuItems.length; i++) {
+            String item = topMenuItems[i];
             JButton btn = new JButton(item);
             btn.setFocusPainted(false);
             btn.setBackground(new Color(200, 0, 0));
@@ -48,7 +58,6 @@ public class DashboardFrame extends JFrame {
             btn.setFont(new Font("SansSerif", Font.BOLD, 14));
             btn.setBorderPainted(false);
             btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
             btn.addActionListener(e -> {
                 if (item.equals("Dashboard")) {
                     cardLayout.show(mainContent, "dashboard");
@@ -56,15 +65,35 @@ public class DashboardFrame extends JFrame {
                     cardLayout.show(mainContent, "overview");
                 } else if (item.equals("Admin")) {
                     new AdminPanelFrame().setVisible(true);
-                } else if (item.equals("Log Out")) {
-                    dispose();
                 }
             });
-
-            menuPanel.add(btn);
+            gbc.gridy = i + 1;
+            sidebar.add(btn, gbc);
         }
 
-        sidebar.add(menuPanel);
+        // 3. Add another vertical glue after the buttons
+        gbc.gridy = topMenuItems.length + 1;
+        gbc.weighty = 1;
+        sidebar.add(Box.createVerticalGlue(), gbc);
+
+        // 4. Log out button at the bottom
+        JButton logoutBtn = new JButton("Log Out");
+        logoutBtn.setFocusPainted(false);
+        logoutBtn.setBackground(new Color(200, 0, 0));
+        logoutBtn.setForeground(Color.WHITE);
+        logoutBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        logoutBtn.setBorderPainted(false);
+        logoutBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        logoutBtn.addActionListener(e -> dispose());
+        gbc.gridy = topMenuItems.length + 2;
+        gbc.anchor = GridBagConstraints.SOUTH;
+        gbc.weighty = 0;
+        gbc.insets = new Insets(0, 0, 0, 0); // reset
+        sidebar.add(logoutBtn, gbc);
+
+        add(sidebar, BorderLayout.WEST);
+
+
         add(sidebar, BorderLayout.WEST);
 
         // ===== MAIN CONTENT with CardLayout =====
