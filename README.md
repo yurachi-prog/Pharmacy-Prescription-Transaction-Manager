@@ -29,9 +29,10 @@ For more information, including our complete system design and project documenta
 ---
 ## 🫸💥🫷 Revisions made based on the panel’s advice or recommendations 
 - UI (Font sizes, explore other fonts and the layout and sidebar do not center. Also the logout put it in the bottom) and need spacing for the dates.
-<img width="975" height="611" alt="image" src="https://github.com/user-attachments/assets/0146d7a6-c892-4ecb-aafa-627e1ed3e339" />
+<img width="975" height="611" alt="image" src="https://github.com/user-attachments/assets/b2ec7a60-1826-428e-925b-093fe200370e" />
 - Pure white for the execution time area
-<img width="975" height="543" alt="image" src="https://github.com/user-attachments/assets/08a07561-8669-4057-bda9-001831ddc06a" />
+<img width="1179" height="736" alt="{64C05D2E-67A8-4CB6-AE85-39F25ED230DB}" src="https://github.com/user-attachments/assets/9957eee0-9930-4062-8100-e25ad5c88631" />
+
 
 
    
